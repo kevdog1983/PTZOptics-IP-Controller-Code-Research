@@ -6,7 +6,9 @@
 <script type="text/javascript" src="http://192.168.1.242/cgi-bin/param.cgi?get_media_view"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/media_view.js"></script>
-<script>
+  <script src="virtualjoystick.js"></script>
+
+  <script>
 	function cam1_pantilt(action){
 		var loc = "http://192.168.1.240/cgi-bin/ptzctrl.cgi?ptzcmd&" + action + "&" + panspeed_sel.value + "&" + tiltspeed_sel.value + "";
 		document.getElementById('myFrame').setAttribute('src', loc);
@@ -228,31 +230,52 @@
 	</td>
 </tr>
 
-<tr>
-  <td><!--Cam 1 Joystick BUTTONS-->
-    <table width="auto" border="0" align="center" cellspacing="0">
-      <tr>
-        <td><br></td>
-        <td><a onMouseDown="cam1_pantilt('up');" onMouseUp="cam1_pantilt('ptzstop')"> <img src="images/up.png" name="Image20" border="0" height="38" width="38" id="up"></a></td>
-        <td><br></td>
-      </tr>
-      <tr>
-        <td><a onMouseDown="cam1_pantilt('left')" onMouseUp="cam1_pantilt('ptzstop')"> <img src="images/left.png" name="Image22" border="0" height="38" width="38" id="left"></a></td>
-        <td><a onMouseDown="cam1_pantilt('home')" onMouseUp="cam1_pantilt('ptzstop')"> <img src="images/home.png" name="Image23" border="0" height="38" width="38" id="home"></a></td>
-        <td><a onMouseDown="cam1_pantilt('right')" onMouseUp="cam1_pantilt('ptzstop')"> <img src="images/right.png" name="Image24" border="0" height="38" width="38" id="right"></a></td>
-      </tr>
-      <tr>
-        <td><br></td>
-        <td><a onMouseDown="cam1_pantilt('down')" onMouseUp="cam1_pantilt('ptzstop')"> <img src="images/down.png" name="Image26" border="0" height="38" width="38" id="down"></a></td>
-        <td><br></td>
-      </tr>
-      </table>
-    </td>
-  </tr>
-  <tr>
-  	<td><hr></td>
-  </tr>
-  <tr>
+        <tr>
+            <td><!--Cam 1 Joystick BUTTONS-->
+                <table width="auto" border="0" align="center" cellspacing="0">
+                    <tr>
+                        <td><br></td>
+                        <td><a onMouseDown="cam1_pantilt('up');" onMouseUp="cam1_pantilt('ptzstop')"> <img
+                                src="images/up.png" name="Image20" border="0" height="38" width="38" id="up"></a></td>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td><a onMouseDown="cam1_pantilt('left')" onMouseUp="cam1_pantilt('ptzstop')"> <img
+                                src="images/left.png" name="Image22" border="0" height="38" width="38" id="left"></a>
+                        </td>
+                        <td><a onMouseDown="cam1_pantilt('home')" onMouseUp="cam1_pantilt('ptzstop')"> <img
+                                src="images/home.png" name="Image23" border="0" height="38" width="38" id="home"></a>
+                        </td>
+                        <td><a onMouseDown="cam1_pantilt('right')" onMouseUp="cam1_pantilt('ptzstop')"> <img
+                                src="images/right.png" name="Image24" border="0" height="38" width="38" id="right"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                        <td><a onMouseDown="cam1_pantilt('down')" onMouseUp="cam1_pantilt('ptzstop')"> <img
+                                src="images/down.png" name="Image26" border="0" height="38" width="38" id="down"></a>
+                        </td>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <script>
+                            var joystick = new VirtualJoystick({
+                                mouseSupport	: true,
+                                stationaryBase	: true,
+                                strokeStyle: 'black',
+                                baseX		: 200,
+                                baseY		: 200
+                            });
+                        </script>
+                    </tr>
+                </table>
+            </td>
+
+            <td>
+                <hr>
+            </td>
+        </tr>
+        <tr>
     <td><table width="auto" border="0" cellpadding="0"><!-- CAM 1 ZOOM FOCUS BUTTONS-->
   <tr>
     <td align="right"><button onClick="cam1_zoom('zoomin');">Zoom In</button>&nbsp;&nbsp;</td>
