@@ -1,0 +1,556 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PTZOptics Multiple Camera Control Board</title>
+<script type="text/javascript" src="http://192.168.1.242/cgi-bin/param.cgi?get_media_view"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/media_view.js"></script>
+<script>
+	function cam1_pantilt(action){
+		var loc = "http://192.168.1.240/cgi-bin/ptzctrl.cgi?ptzcmd&" + action + "&" + panspeed_sel.value + "&" + tiltspeed_sel.value + "";
+		document.getElementById('myFrame').setAttribute('src', loc);
+	}
+	function cam1_zoom(action){
+		var loc = "http://192.168.1.240/cgi-bin/ptzctrl.cgi?ptzcmd&" + action + "&" + zoomspeed_sel.value + "";
+		document.getElementById('myFrame').setAttribute('src', loc);
+	}
+	function cam1_focus(action){
+		var loc = "http://192.168.1.240/cgi-bin/ptzctrl.cgi?ptzcmd&" + action + "&" + focusspeed_sel.value + "";
+		document.getElementById('myFrame').setAttribute('src', loc);
+	}
+	function cam1_preset(positionnum){
+		var loc = "http://192.168.1.240/cgi-bin/ptzctrl.cgi?ptzcmd&poscall&" + positionnum + "";
+		document.getElementById('myFrame').setAttribute('src', loc);
+	}
+			
+	function cam2_pantilt(action){
+		var loc = "http://192.168.1.242/cgi-bin/ptzctrl.cgi?ptzcmd&" + action + "&" + panspeed_sel.value + "&" + tiltspeed_sel.value + "";
+		document.getElementById('myFrame').setAttribute('src', loc);
+	}
+	function cam2_zoom(action){
+		var loc = "http://192.168.1.242/cgi-bin/ptzctrl.cgi?ptzcmd&" + action + "&" + zoomspeed_sel.value + "";
+		alert (loc)
+		document.getElementById('myFrame').setAttribute('src', loc);
+	}
+	function cam2_focus(action){
+		var loc = "http://192.168.1.242/cgi-bin/ptzctrl.cgi?ptzcmd&" + action + "&" + focusspeed_sel.value + "";
+		document.getElementById('myFrame').setAttribute('src', loc);
+	}
+	function cam2_preset(positionnum){
+		var loc = "http://192.168.1.242/cgi-bin/ptzctrl.cgi?ptzcmd&poscall&" + positionnum + "";
+		document.getElementById('myFrame').setAttribute('src', loc);
+	}
+			
+	function cam3_pantilt(action){
+		var loc = "http://192.168.1.250/cgi-bin/ptzctrl.cgi?ptzcmd&" + action + "&" + panspeed_sel.value + "&" + tiltspeed_sel.value + "";
+		document.getElementById('myFrame').setAttribute('src', loc);
+	}
+	function cam3_zoom(action){
+		var loc = "http://192.168.1.250/cgi-bin/ptzctrl.cgi?ptzcmd&" + action + "&" + zoomspeed_sel.value + "";
+		document.getElementById('myFrame').setAttribute('src', loc);
+	}
+	function cam3_focus(action){
+		var loc = "http://192.168.1.250/cgi-bin/ptzctrl.cgi?ptzcmd&" + action + "&" + focusspeed_sel.value + "";
+		document.getElementById('myFrame').setAttribute('src', loc);
+	}
+	function cam3_preset(positionnum){
+		var loc = "http://192.168.1.250/cgi-bin/ptzctrl.cgi?ptzcmd&poscall&" + positionnum + "";
+		document.getElementById('myFrame').setAttribute('src', loc);
+	}
+</script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0">
+  <tr>
+    <td width="170" valign="top"><table width="100%" border="0" cellpadding="0"  bgcolor="#59A3F1">
+  <tr>
+    <td align="center"><strong style="font-size: 18px">Control Selections</strong></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Pan Speed:</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><select name="panspeed_sel" size="1" id="panspeed_sel">
+      <option value="1" selected>1 (Slow)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20 (Fast)</option>
+      &nbsp;</select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Tilt Speed:</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><select name="tiltspeed_sel" size="1" id="tiltspeed_sel">
+      <option value="1" selected>1 (Slow)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15 (Fast)</option>
+      &nbsp;</select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Zoom Speed:</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><select name="zoomspeed_sel" id="zoomspeed_sel">
+        <option value="0" selected>0 (Slow)</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7 (Fast)</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Focus Speed:</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><select name="focusspeed_sel" size="1" id="focusspeed_sel">
+      <option value="0" selected>0 (Slow)</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7 (Fast)</option>
+      &nbsp;</select></td>
+  </tr>
+  <tr><td>&nbsp;</td></tr>
+  <tr>
+  	<td align="center"><iframe id="myFrame" width="50" marginwidth="0" height="50" marginheight="0" align="middle" scrolling="none"></iframe></td>
+  </tr>
+  <tr>
+  	<td bgcolor="#FFFFFF">&nbsp;</td>
+  </tr>
+  <tr>
+  	<td align="center" bgcolor="#FFFFFF"style="font-size: 18px; font-weight: bold;">PTZ Optics<br>Multiple Camera<br>Control Board</td>
+  </tr>
+</table>
+</td><td width="15">&nbsp;</td>
+    <td valign="top"><table border="1" cellpadding="0"><!--CAM 1-->
+  <tr>
+    <td valign="top"><table width="330" border="0" cellpadding="0" bgcolor="#59A3F1">
+  <tr>
+    <td align="center"><strong>Camera:</strong> Left Cam (192.168.1.240)<br><hr></td>
+  </tr>
+  <tr>
+    <td align="center">
+	<!--javascript to show camera view in VLC-->
+	<script type="text/javascript">
+	  var url_cam1 = "rtsp://192.168.1.240/1";
+	  
+	  var view_width = "width=320";
+	  var view_height = "height=180";
+		
+	  var vlc;
+	  var options;
+	  var id;
+	  
+	  var is_download;
+	  var refresh_flag = 1;
+	
+	  if (navigator.userAgent.indexOf("MSIE") > 0) {
+		// IE
+		if (isInsalledIEVLC()) {
+			is_download = 0;
+		} else {
+			is_download = 1;
+		}
+		vlc_play_IE(url_cam1, view_width, view_height);
+		
+		//vlc_play_FireFox(url, view_width, view_height);
+	  } else if ((navigator.userAgent.indexOf("Firefox") > 0) || (navigator.userAgent.indexOf("Chrome") > 0)) {
+		// Firefox
+		if (isInsalledFFVLC()) {
+			is_download = 0;
+		} else {
+			is_download = 1;
+		}
+		vlc_play_FireFox(url_cam1, view_width, view_height);
+	  } else if ((navigator.userAgent.indexOf("Safari") > 0) || (navigator.userAgent.indexOf("Apple") > 0)) {
+		// mac
+		vlc_play_QuickTime(url_cam1, view_width, view_height);
+	  } else {
+		// other
+		if (isInsalledIEVLC()) {
+			is_download = 0;
+		} else {
+			is_download = 1;
+		}
+		vlc_play_IE(url_cam1, view_width, view_height);
+	  }
+	
+	
+	</script>
+	</td>
+</tr>
+
+<tr>
+  <td><!--Cam 1 Joystick BUTTONS-->
+    <table width="auto" border="0" align="center" cellspacing="0">
+      <tr>
+        <td><br></td>
+        <td><a onMouseDown="cam1_pantilt('up');" onMouseUp="cam1_pantilt('ptzstop')"> <img src="images/up.png" name="Image20" border="0" height="38" width="38" id="up"></a></td>
+        <td><br></td>
+      </tr>
+      <tr>
+        <td><a onMouseDown="cam1_pantilt('left')" onMouseUp="cam1_pantilt('ptzstop')"> <img src="images/left.png" name="Image22" border="0" height="38" width="38" id="left"></a></td>
+        <td><a onMouseDown="cam1_pantilt('home')" onMouseUp="cam1_pantilt('ptzstop')"> <img src="images/home.png" name="Image23" border="0" height="38" width="38" id="home"></a></td>
+        <td><a onMouseDown="cam1_pantilt('right')" onMouseUp="cam1_pantilt('ptzstop')"> <img src="images/right.png" name="Image24" border="0" height="38" width="38" id="right"></a></td>
+      </tr>
+      <tr>
+        <td><br></td>
+        <td><a onMouseDown="cam1_pantilt('down')" onMouseUp="cam1_pantilt('ptzstop')"> <img src="images/down.png" name="Image26" border="0" height="38" width="38" id="down"></a></td>
+        <td><br></td>
+      </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+  	<td><hr></td>
+  </tr>
+  <tr>
+    <td><table width="auto" border="0" cellpadding="0"><!-- CAM 1 ZOOM FOCUS BUTTONS-->
+  <tr>
+    <td align="right"><button onClick="cam1_zoom('zoomin');">Zoom In</button>&nbsp;&nbsp;</td>
+    <td align="center">&nbsp;&nbsp;<button onClick="cam1_zoom('zoomout');">Zoom Out</button>&nbsp;&nbsp;</td>
+    <td align="left">&nbsp;&nbsp;<button onclick="cam1_zoom('zoomstop');">Zoom Stop</button></td>
+  </tr>
+  <tr><td height="8"></td></tr>
+  <tr>
+    <td align="right"><button onClick="cam1_focus('focusin');">Focus In</button>&nbsp;&nbsp;</td>
+    <td align="center">&nbsp;&nbsp;<button onClick="cam1_focus('focusout');">Focus Out</button>&nbsp;&nbsp;</td>
+    <td align="left">&nbsp;&nbsp;<button onclick="cam1_focus('focusstop');">Focus Stop</button></td>
+  </tr>
+</table></td>
+  </tr>
+  <tr>
+    <td><hr></td>
+  </tr>
+  <td valign="top"><table width="auto"height="auto">
+  <tr><!--Cam 1 PRESETS-->
+    <tr>
+		<td align="left"><input type="button" style="width:100px;" onClick="cam1_preset('1');" value="(1) P1"></td>
+		<td align="center"><input type="button" style="width:100px;" onClick="cam1_preset('2');" value="(2) P2"></td>
+		<td align="right"><input type="button" style="width:100px;" onClick="cam1_preset('3');" value="(3) P3"></td>
+	</tr>
+	<tr>
+		<td align="left"><input type="button" style="width:100px;" onClick="cam1_preset('4');" value="(4) P4"></td>
+		<td align="center"><input type="button" style="width:100px;" onClick="cam1_preset('5');" value="(5) P5"></td>
+		<td align="right"><input type="button" style="width:100px;" onClick="cam1_preset('6');" value="(6) P6"></td>
+	</tr>
+	<tr>
+		<td align="left"><input type="button" style="width:100px;" onClick="cam1_preset('7');" value="(7) P7"></td>
+		<td align="center"><input type="button" style="width:100px;" onClick="cam1_preset('8');" value="(8) P8"></td>
+		<td align="right"><input type="button" style="width:100px;" onClick="cam1_preset('9');" value="(9) P9"></td>
+	</tr>
+	<tr>
+		<td align="left"><input type="button" style="width:100px;" onClick="cam1_preset('10');" value="(10) P10"></td>
+		<td align="center"><input type="button" style="width:100px;" onClick="cam1_preset('11');" value="(11) P11"></td>
+		<td align="right"><input type="button" style="width:100px;" onClick="cam1_preset('12');" value="(12) P12"></td>
+	</tr>
+  </tr>
+
+
+
+</table></td>
+<!--Camera Two-->
+</td>
+    <td width="10">&nbsp;</td>
+    <td width="330" valign="top"><table width="350" border="0" cellpadding="0" bgcolor="#59A3F1">
+  <tr>
+    <td align="center"><strong>Camera:</strong> Center Cam (192.168.1.242)<br><hr></td>
+  </tr>
+  <tr><!--CAM 2 SHOW VLC Javascript-->
+    <td align="center"><script type="text/javascript">
+	  var url_cam2 = "rtsp://192.168.1.242/1";
+	  
+	  var view_width = "width=320";
+	  var view_height = "height=180";
+		
+	  var vlc;
+	  var options;
+	  var id;
+	  
+	  var is_download;
+	  var refresh_flag = 1;
+	
+	  if (navigator.userAgent.indexOf("MSIE") > 0) {
+		// IE
+		if (isInsalledIEVLC()) {
+			is_download = 0;
+		} else {
+			is_download = 1;
+		}
+		vlc_play_IE(url_cam2, view_width, view_height);
+		
+		//vlc_play_FireFox(url, view_width, view_height);
+	  } else if ((navigator.userAgent.indexOf("Firefox") > 0) || (navigator.userAgent.indexOf("Chrome") > 0)) {
+		// Firefox
+		if (isInsalledFFVLC()) {
+			is_download = 0;
+		} else {
+			is_download = 1;
+		}
+		vlc_play_FireFox(url_cam2, view_width, view_height);
+	  } else if ((navigator.userAgent.indexOf("Safari") > 0) || (navigator.userAgent.indexOf("Apple") > 0)) {
+		// mac
+		vlc_play_QuickTime(url_cam2, view_width, view_height);
+	  } else {
+		// other
+		if (isInsalledIEVLC()) {
+			is_download = 0;
+		} else {
+			is_download = 1;
+		}
+		vlc_play_IE(url_cam2, view_width, view_height);
+	  }
+	
+	
+	</script></td>
+  </tr>
+<tr><!--CAM 2 Movement Buttons-->
+  <td>
+    <table width="auto" border="0" align="center" cellspacing="0">
+      <tr>
+        <td><br></td>
+        <td><a onMouseDown="cam2_pantilt('up');" onMouseUp="cam2_pantilt('ptzstop')"> <img src="images/up.png" name="Image20" border="0" height="38" width="38" id="up"></a></td>
+        <td><br></td>
+      </tr>
+      <tr>
+        <td><a onMouseDown="cam2_pantilt('left')" onMouseUp="cam2_pantilt('ptzstop')"> <img src="images/left.png" name="Image22" border="0" height="38" width="38" id="left"></a></td>
+        <td><a onMouseDown="cam2_pantilt('home')" onMouseUp="cam2_pantilt('ptzstop')"> <img src="images/home.png" name="Image23" border="0" height="38" width="38" id="home"></a></td>
+        <td><a onMouseDown="cam2_pantilt('right')" onMouseUp="cam2_pantilt('ptzstop')"> <img src="images/right.png" name="Image24" border="0" height="38" width="38" id="right"></a></td>
+      </tr>
+      <tr>
+        <td><br></td>
+        <td><a onMouseDown="cam2_pantilt('down')" onMouseUp="cam2_pantilt('ptzstop')"> <img src="images/down.png" name="Image26" border="0" height="38" width="38" id="down"></a></td>
+        <td><br></td>
+      </tr>
+      </table>
+    </td>
+  </tr>
+<tr><td><hr></td></tr>
+  <tr><!--CAM 2 ZOOM FOCUS BUTTONS-->
+    <td><table width="100%" border="0" cellpadding="0">
+  <tr>
+    <td align="right"><button onClick="cam2_zoom('zoomin');">Zoom In</button>&nbsp;&nbsp;</td>
+    <td align="center">&nbsp;&nbsp;<button onClick="cam2_zoom('zoomout');">Zoom Out</button>&nbsp;&nbsp;</td>
+    <td align="left">&nbsp;&nbsp;<button onclick="cam2_zoom('zoomstop');">Zoom Stop</button></td>
+  </tr>
+  <tr><td height="8"></td></tr>
+  <tr>
+    <td align="right"><button onClick="cam2_focus('focusin');">Focus In</button>&nbsp;&nbsp;</td>
+    <td align="center">&nbsp;&nbsp;<button onClick="cam2_focus('focusout');">Focus Out</button>&nbsp;&nbsp;</td>
+    <td align="left">&nbsp;&nbsp;<button onclick="cam2_focus('focusstop');">Focus Stop</button></td>
+  </tr>
+</table></td>
+  </tr>
+  <tr>
+    <td><hr></td>
+  </tr>
+    <td align="center">
+	<input type="button" style="width:35px;" onClick="cam2_preset('1');" value="(1) P1">
+	<input type="button" style="width:35px;" onClick="cam2_preset('2');" value="(2) P2">
+	<input type="button" style="width:35px;" onClick="cam2_preset('3');" value="(3) P3">
+	<input type="button" style="width:35px;" onClick="cam2_preset('4');" value="(4) P4">
+    <input type="button" style="width:35px;" onClick="cam2_preset('5');" value="(5) P5">
+    <input type="button" style="width:55px;" onClick="cam2_preset('6');" value="(6) P6">
+    <input type="button" style="width:35px;" onClick="cam2_preset('7');" value="(7) P7">
+    <input type="button" style="width:35px;" onClick="cam2_preset('8');" value="(8) P8">
+    <input type="button" style="width:35px;" onClick="cam2_preset('9');" value="(9) P9">
+	<input type="button" style="width:110px;" onClick="cam2_preset('10');" value="(10) P10">
+	</td>
+  </tr>
+
+</table></td>
+    <td width="10">&nbsp;</td>
+    <td width="350"><table width="330" border="0" cellpadding="0" bgcolor="#59A3F1">
+  <tr>
+    <td align="center"><strong>Camera:</strong> Right Cam (192.168.1.250)<br><hr></td>
+  </tr>
+  <tr>
+    <td align="center"><script type="text/javascript">
+	  var url_cam3 = "rtsp://192.168.1.250/1";
+	  
+	  var view_width = "width=320";
+	  var view_height = "height=180";
+		
+	  var vlc;
+	  var options;
+	  var id;
+	  
+	  var is_download;
+	  var refresh_flag = 1;
+	
+	  if (navigator.userAgent.indexOf("MSIE") > 0) {
+		// IE
+		if (isInsalledIEVLC()) {
+			is_download = 0;
+		} else {
+			is_download = 1;
+		}
+		vlc_play_IE(url_cam3, view_width, view_height);
+		
+		//vlc_play_FireFox(url, view_width, view_height);
+	  } else if ((navigator.userAgent.indexOf("Firefox") > 0) || (navigator.userAgent.indexOf("Chrome") > 0)) {
+		// Firefox
+		if (isInsalledFFVLC()) {
+			is_download = 0;
+		} else {
+			is_download = 1;
+		}
+		vlc_play_FireFox(url_cam3, view_width, view_height);
+	  } else if ((navigator.userAgent.indexOf("Safari") > 0) || (navigator.userAgent.indexOf("Apple") > 0)) {
+		// mac
+		vlc_play_QuickTime(url_cam3, view_width, view_height);
+	  } else {
+		// other
+		if (isInsalledIEVLC()) {
+			is_download = 0;
+		} else {
+			is_download = 1;
+		}
+		vlc_play_IE(url_cam3, view_width, view_height);
+	  }
+	
+	
+	</script></td>
+  </tr>
+<tr>
+  <td>
+    <table width="auto" border="0" align="center" cellspacing="0">
+      <tr>
+        <td><br></td>
+        <td><a onMouseDown="cam3_pantilt('up');" onMouseUp="cam3_pantilt('ptzstop')"> <img src="images/up.png" name="Image20" border="0" height="38" width="38" id="up"></a></td>
+        <td><br></td>
+      </tr>
+      <tr>
+        <td><a onMouseDown="cam3_pantilt('left')" onMouseUp="cam3_pantilt('ptzstop')"> <img src="images/left.png" name="Image22" border="0" height="38" width="38" id="left"></a></td>
+        <td><a onMouseDown="cam3_pantilt('home')" onMouseUp="cam3_pantilt('ptzstop')"> <img src="images/home.png" name="Image23" border="0" height="38" width="38" id="home"></a></td>
+        <td><a onMouseDown="cam3_pantilt('right')" onMouseUp="cam3_pantilt('ptzstop')"> <img src="images/right.png" name="Image24" border="0" height="38" width="38" id="right"></a></td>
+      </tr>
+      <tr>
+        <td><br></td>
+        <td><a onMouseDown="cam3_pantilt('down')" onMouseUp="cam3_pantilt('ptzstop')"> <img src="images/down.png" name="Image26" border="0" height="38" width="38" id="down"></a></td>
+        <td><br></td>
+      </tr>
+      </table>
+    </td>
+  </tr>
+<tr><td><hr></td></tr>
+  <tr>
+    <td><table width="100%" border="0" cellpadding="0">
+  <tr>
+    <td align="right"><button onClick="cam3_zoom('zoomin');">Zoom In</button>&nbsp;&nbsp;</td>
+    <td align="center">&nbsp;&nbsp;<button onClick="cam3_zoom('zoomout');">Zoom Out</button>&nbsp;&nbsp;</td>
+    <td align="left">&nbsp;&nbsp;<button onclick="cam3_zoom('zoomstop');">Zoom Stop</button></td>
+  </tr>
+  <tr><td height="8"></td></tr>
+  <tr>
+    <td align="right"><button onClick="cam3_focus('focusin');">Focus In</button>&nbsp;&nbsp;</td>
+    <td align="center">&nbsp;&nbsp;<button onClick="cam3_focus('focusout');">Focus Out</button>&nbsp;&nbsp;</td>
+    <td align="left">&nbsp;&nbsp;<button onclick="cam3_focus('focusstop');">Focus Stop</button></td>
+  </tr>
+</table></td>
+  </tr>
+  <tr>
+    <td><hr></td>
+  </tr>
+  <tr>
+    <td align="center"><input type="button" style="width:200px;" onClick="cam3_preset('1');" value="(1) Wide Choir"></td>
+  </tr>
+  <tr>
+    <td align="center"><input type="button" style="width:200px;" onClick="cam3_preset('2');" value="(2) Orchestra"></td>
+  </tr>
+  <tr><td><hr></td></tr>
+  <tr>
+    <td align="center"><input type="button" style="width:35px;" onClick="cam3_preset('3');" value="L1">&nbsp;
+    <input type="button" style="width:35px;" onClick="cam3_preset('4');" value="L2">&nbsp;
+    <input type="button" style="width:35px;" onClick="cam3_preset('5');" value="L3">&nbsp;&nbsp;
+    <input type="button" style="width:55px;" onClick="cam3_preset('6');" value="Center">&nbsp;&nbsp;
+    <input type="button" style="width:35px;" onClick="cam3_preset('7');" value="R3">&nbsp;
+    <input type="button" style="width:35px;" onClick="cam3_preset('8');" value="R2">&nbsp;
+    <input type="button" style="width:35px;" onClick="cam3_preset('9');" value="R1"></td>
+  </tr>
+    <tr>
+  	<td><hr></td>
+  </tr>
+  <tr>
+    <td align="center"><input type="button" style="width:110px;" onClick="cam3_preset('10');" value="(10) L1/L2">&nbsp;&nbsp;
+    <input type="button" style="width:110px;" onClick="cam3_preset('11');" value="(11) Left Trio"></td>
+  </tr>
+  <tr>
+    <td align="center"><input type="button" style="width:110px;" onClick="cam3_preset('12');" value="(12) Right Trio">&nbsp;&nbsp;
+    <input type="button" style="width:110px;" onClick="cam3_preset('13');" value="(13) R1/R2"></td>
+  </tr>
+    <tr>
+  	<td><hr></td>
+  </tr>
+  <tr>
+    <td align="center"><input type="button" style="width:95px;" onClick="cam3_preset('20');" value="Left Choir">&nbsp;&nbsp;
+    <input type="button" style="width:105px;" onClick="cam3_preset('21');" value="Center Choir">&nbsp;&nbsp;
+    <input type="button" style="width:95px;" onClick="cam3_preset('22');" value="Right Choir"></td>
+  </tr>
+    <tr>
+  	<td><hr></td>
+  </tr>
+  <tr>
+    <td align="center"><input type="button" style="width:200px;" onClick="cam3_preset('30');" value="(30) Cello Soloist"></td>
+  </tr>
+    <tr>
+  	<td align="center">&nbsp;</td>
+  </tr>
+
+</table></td>
+  </tr>
+</table>
+</td>
+  </tr>
+</table>
+
+</body>
+</html>

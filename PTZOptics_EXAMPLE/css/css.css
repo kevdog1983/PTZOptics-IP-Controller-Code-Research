@@ -1,0 +1,77 @@
+/*公共样式*/
+* { margin: 0px; padding: 0px; }
+a { color: #FFF; text-decoration: none; outline:none; }
+a:hover { text-decoration: none; color: #FFF; }
+a:active { text-decoration: none; color: #F60; star:expression(this.onFocus=this.blur());
+}
+ul, li, dl, dt, dd { list-style:none; margin:0; padding:0; }
+img { border:0; }
+.yellow{ color: #F60; }
+.yellow:link, .yellow:visited{ color: #F4FD02; }
+.yellow:hover{ color: #fff; }
+.orange:link, .orange:visited{ color: #F60; }
+.orange:hover{ color: #333; }
+
+.white:link, .white:visited{ color: #fff; }
+.white:hover{ color: #F4FD02; }
+.red { color: #F00; }
+.hs { color: #999; }
+body { font-size: 16px; color: #000; background-color: #1E2327; font-family: 'Times New Roman',Times,Serif;}
+
+/*头部样式*/
+.box { width: 1140px; float:left; padding-top:30px; background:url(../images/leftbg.jpg) repeat-y left top;  }
+.left { float: left; width:160px; padding:30px 8px 0 20px;  }
+.class { float: left; width: 142px; padding:30px 0 10px 8px; }
+.class ul li { float: left; height: 33px; line-height:33px; text-align:center; width: 106px; margin-bottom:8px;  }
+.class ul li a{ font-size:18px; font-weight:bold;}
+.norm { float: left; height: 30px; width: 90px; background:url(../images/classbg1.png) no-repeat center center; margin-right:8px;}
+.norm:hover{ float: left; height: 30px; width: 90px; background:url(../images/classbg2.png) no-repeat center center; color:#FFF; margin-bottom:8px;}
+.cur { float: left; height: 30px; width: 90px; background:url(../images/classbg2.png) no-repeat center center; margin-right:8px;}
+.fangxiang { float: left; width: 143px; height:143px; padding:15px 0 25px 5px; }
+.logo { float: left; width: 160px; padding-left:13px;}
+.juli { float: left; width: 160px; padding:0 0 10px 10px; }
+.juli dl { float: left; width: 160px; padding:4px 0; }
+.item { float: left; width: 160px;  }
+.item font { float: left; width: 85px; line-height:17px; padding-left:2px;}
+.item span { float: left; width: 70px;  }
+.textfield { height: 17px; line-height:17px; width: 42px; padding:0 0 0 5px;  border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; }
+.textfieldA { height: 15px; line-height:15px; width: 20px; padding:0 0 0 5px; border: 1px solid #727474; }
+.textfieldB { height: 15px; line-height:15px; width: 40px; padding:0 0 0 5px; border: 1px solid #727474; }
+.textfieldC { height: 15px; line-height:15px; width: 100px; padding:0 0 0 5px; border: 1px solid #727474; }
+.textfieldD { height: 15px; line-height:15px; width: 150px; padding:0 0 0 5px; border: 1px solid #727474; }
+.textfieldE { height: 15px; line-height:15px; width: 250px; padding:0 0 0 5px; border: 1px solid #727474; }
+
+.yuyan { float: left; height: 40px; padding-left:18px;}
+.yuyan font { float: right; height: 23px; width: 23px; padding-right: 12px; }
+.yuyan span { float: right; height: 23px; width: 88px; padding-left:10px;  color: #000; line-height: 23px; }
+
+.butA { float: left; height: 24px; line-height:24px; width: 58px; text-align:center; margin-right:14px; }
+.butA:hover { float: left; height: 24px; line-height:24px; width: 58px; text-align:center; }
+.butA1 { float: left; height: 26px; line-height:26px; width: 26px; text-align:center; margin-right:10px; padding-left:5px;}
+.butA1:hover { float: left; height: 26px; line-height:26px; width: 26px; text-align:center; }
+
+.right { float: left; width:1000px; padding-left:24px; padding-top:30px; }
+.title { float: left; height: 40px; padding:10px 0 0 25px;}
+.title font { float: right; height: 23px; width: 23px; padding-right: 12px; }
+.title span { float: right; height: 23px; width: 88px; padding-left:10px;  color: #000; line-height: 23px; }
+
+.ricont { float: left; width: 1000px; }
+.ricont dl { float: left; width: 800px; display: block; padding-left: 55px; }
+.ricont dl ul { float: left; width: 390px; }
+.jdt { margin: 0px; padding: 0px; }
+.ricont1 { float: left; width: 1000px; padding-left: 35px; }
+.ricont1 dl { float: left; width: 960px; display: block;  }
+
+
+.rpic { border: 7px solid #363C40; float: left; }
+.ritim { padding-left: 35px; }
+
+.select span { float:left; width:17px; height:16px; background:url(../images/cele.jpg) no-repeat left center;}
+.select span .checkboxh { border: 1px solid #CFD3D8; opacity: 0; }
+.select font { float: left; padding-left: 8px; padding-right: 37px; }
+.butB { float: left; height: 35px; line-height:35px; width: 72px; text-align:center; no-repeat left center; margin-right:27px; }
+.rititle { font-size: 16px; font-weight: bold; color: #fff; padding-bottom: 25px; }
+.biao tr td { font-size: 14px; }
+.xlseleA { font-size: 14px; width:103px; height:17px; padding-left:10px; background:url(../images/xlsele.jpg) no-repeat 93px center; background-color:#FFF; color: #000; }
+.xlseleB { font-size: 14px; width:66px; height:17px; padding-left:10px; background:url(../images/xlsele.jpg) no-repeat 57px center; background-color:#FFF; color: #000; }
+
